@@ -24,7 +24,7 @@ pipeline {
         
       stage('Build Docker') {
             steps {
-            withDockerRegistry([credentialsId:"docker-hub",url:""]){
+            withDockerRegistry([credentialsId:"dockerlogin",url:""]){
               sh 'printenv'
               sh 'docker build -t maldamiri/numaric-app:""$GIT_COMMIT"" .'
               sh 'docker push maldamiri/numaric-app:""$GIT_COMMIT""'
