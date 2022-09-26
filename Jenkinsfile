@@ -8,5 +8,13 @@ pipeline {
               archive 'target/*.jar' 
             }
         }   
+        
+      stage('run unit test') {
+            steps {
+              sh "mvn test" 
+            }
+        } 
+        
+        
     }
 }
