@@ -22,6 +22,19 @@ pipeline {
         } 
         
         
+      stage('Vunerablility scan - Docker') {
+            steps { 
+             sh "mvn dependency-check:check"
+            }
+           post{
+            	always {
+					dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+            	   }  
+            	 }
+        }  
+        
+        
+        
       stage('Build Docker') {
             steps {
             withDockerRegistry([credentialsId:"dockerlogin",url:""]){
