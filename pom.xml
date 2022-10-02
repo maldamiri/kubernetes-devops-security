@@ -67,7 +67,38 @@
 			</executions>
 		</plugin>
 			
-			
+		
+		<plugin>
+		    <groupId>org.pitest</groupId>
+		    <artifactId>pitest-maven</artifactId>
+		    <version>1.5.0</version>
+		    <dependencies>
+		    <dependency>
+		    <groupId>org.pitest</groupId>
+		    <artifactId>pitest-junit-plugin</artifactId>
+		    <version>0.12</version>
+		    </dependency>
+		 
+		    </dependencies>
+		    <configuration>
+              <mutamutationThreshold>70</mutamutationThreshold>
+              <outpotformats>
+                <outputformat>XML</outputformat>
+                <outputformat>HTML</outputformat>
+               </outpotformats>
+		    </configuration>
+		</plugin>
+		
+		<plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <version>7.2.1</version>
+              <configuration>
+                  <Format>ALL</Format>8
+                  <failBuildOnCVSS>5</failBuildOnCVSS>
+              </configuration>
+            </plugin>
+		
 			
 		</plugins>
 	</build>
